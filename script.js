@@ -24,5 +24,9 @@ select.addEventListener("change", (evt)=>{
 
 };
 const updateFlag=(element)=>{
-  console.log(element.value);
-}
+    let currCode = element.value;
+    let countryCode=countryList[currCode];
+    let newSrc = `https://flagsapi.com/${countryCode}/flat/64.png`;
+    let img=element.parentElement.querySelector("img");
+    img.src=newSrc;
+};
