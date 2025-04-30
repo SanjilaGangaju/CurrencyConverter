@@ -15,7 +15,8 @@ git clone <repository-url>
 5. The converted amount will be displayed instantly.
 
 # APIs Used
-Currency API : Provides real-time currency exchange rates.
-Repository: fawazahmed0/currency-api
-Flags API: Provides flag images for different countries.
-Website: Flags API
+- **Currency API**: Provides real-time currency exchange rates.  
+  Repository: [fawazahmed0/currency-api](https://github.com/fawazahmed0/currency-api)
+
+- **Flags API**: Provides flag images for different countries.  
+  Website: [Flags API](https://flagcdn.com)
