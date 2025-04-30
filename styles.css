@@ -7,14 +7,15 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: aliceblue;
+    background-color: rgb(9, 30, 49);
+    font-family: cursive;
 }
 .container{
-    background-color:#fffff7;
+    background-color:#f3f2f2;
     padding: 2rem;
     border-radius: 1rem;
     min-height: 45vh;
-    width: 40vh;
+    width: 60vh;
 
 }
 form{
@@ -25,6 +26,7 @@ form select, button, input{
     border: none;
     outline: none;
     border-radius: 0.75rem;
+    
 
 }
 form input{
@@ -32,6 +34,7 @@ form input{
     font-size: 1rem;
     height: 3rem;
     padding-left: 0.5rem; 
+    margin-top: 10px;
 }
 .dropdown{
     display: flex;
@@ -50,6 +53,7 @@ form input{
     align-items: center;
     border-radius: 0.5rem;
     border: 1px solid lightgray;
+    margin-top: 0.5rem;
    
 }
 .dropdown i{
@@ -61,12 +65,19 @@ form input{
     width: auto;
 }
 .msg{
-    margin: 2rem 0 2rem 0;
+    margin: 2rem 0.7rem 2rem 0;
+    text-align: center;
+    font-size: 1.3rem;
 }
 form button{
     height: 3rem;
-    background-color: rgb(20, 156, 54);
+    background-color: rgb(49, 110, 116);
     color: #fff;
     font-size: 1.15rem;
     cursor: pointer;
+}
+.container h2{
+    text-align: center;
+    font-weight: 700;
+    font-family: cursive;
 }

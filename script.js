@@ -2,8 +2,8 @@ const dropList =document.querySelectorAll(".dropdown select");
 fromCurrency = document.querySelector(".from select");
 toCurrency = document.querySelector(".to select");
 getButton = document.querySelector("form button");
-let exchangeRatetext= document.querySelector(".exchangeRate-text");
-
+let exchangeRatetext= document.querySelector(".msg");
+const BASE_URL ="https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies";
 for (let select of dropList){
     for (currencyCode in countryList){
         let newOption = document.createElement("option");
@@ -30,21 +30,27 @@ const updateFlag=(element)=>{
     let img=element.parentElement.querySelector("img");
     img.src=newSrc;
 };
-getButton.addEventListener("click", (evt)=>{
-    evt.preventDefault();
+const updateExchangeRate=  async()=>{
+    
     let amount=document.querySelector(".amount input");
     let amtVal=amount.value;
     if (amtVal==="" || amtVal<1){
         amtVal=1;
         amtVal.value="1";
     }
-    const URL=`https://v6.exchangerate-api.com/v6/c9586faeceddafa2f5698f10/latest/${fromCurrency.value}`;
-    fetch(URL).then(response => response.json()).then(result =>{
-        let exchangeRate = result.conversion_rates[toCurrency.value];
-        let totalExRate = (amtVal * exchangeRate).toFixed(2);
-        
-        exchangeRatetext.innerText = `${amountVal} ${fromCurrency.value} = ${totalExRate} ${toCurrency.value}`;
-    }).catch(() =>{
-        exchangeRatetext.innerText = "Something went wrong";
-    });
+     
+    const URL =`${BASE_URL}/${fromCurrency.value.toLowerCase()}.json`;
+    let response = await fetch(URL);
+    let data=await response.json();
+    let rate=data[fromCurrency.value.toLowerCase()][toCurrency.value.toLowerCase()];
+    let finalAmount = amtVal*rate;
+    exchangeRatetext.innerText=`${amtVal} ${fromCurrency.value}=${finalAmount}${toCurrency.value}`;
+};
+getButton.addEventListener("click", (evt)=>{
+    evt.preventDefault();
+    updateExchangeRate();
+
 });
+// window.addEventListener("load",()=>{
+//     updateExchangeRate();
+// });
