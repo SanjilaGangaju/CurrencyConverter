@@ -6,7 +6,8 @@ User-friendly interface.
 
 # Usage
 1. Clone the repository
-    [git clone <repository-url>]
+```bash
+git clone <repository-url>
 2. Open index.html in your webbrowser.
 3. Select the base currency and target currrency from the dropdown menus.
 4. Enter the amount to convert.
